@@ -1,12 +1,3 @@
-#' @importFrom stats na.omit na.fail na.exclude median
-#' @importFrom utils head tail capture.output
-#' @useDynLib declared, .registration = TRUE
-#'
-NULL
-#> NULL
-
-
-
 
 #' @export
 `format_declared` <- function(x, digits = getOption("digits")) {
