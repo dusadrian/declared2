@@ -156,6 +156,7 @@
 }
 
 
+#' @method labels declared
 #' @export
 `labels.declared` <- function(object, prefixed = FALSE, ...) {
     labels <- attr(object, "labels", exact = TRUE)
@@ -176,14 +177,14 @@
 }
 
 
+#' @method labels data.frame
 #' @export
 `labels.data.frame` <- function(object, prefixed = FALSE, ...) {
     lapply(object, labels, prefixed = prefixed)
 }
 
 
-#' @rdname labels
-#' @param value Value
+#' @method labels<- declared
 #' @export
 `labels<-.declared` <- function(x, value) {
     attr(x, "labels") <- value

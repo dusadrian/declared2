@@ -4,21 +4,16 @@
 \alias{labels}
 \alias{label}
 \alias{label<-}
-\alias{labels.declared<-}
 \title{Get / Declare value labels}
 \usage{
 label(x)
 
 label(x) <- value
-
-\method{labels}{`declared<-`}(x, value)
 }
 \arguments{
 \item{x}{Any vector of values that should be declared as missing
 (for \code{labels}) or a numeric vector of length two giving the (inclusive)
 extents of the range of missing values (for \code{label}).}
-
-\item{value}{Value}
 }
 \value{
 \code{labels()} will return a named vector.
