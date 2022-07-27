@@ -18,7 +18,6 @@
 #' \code{label()} will return a single character string.
 #'
 #' @examples
-#'
 #' x <- declared(
 #'     c(-2, 1:5, -1),
 #'     labels = c(Good = 1, Bad = 5, DK = -1),
@@ -177,14 +176,12 @@
 }
 
 
-#' @method labels data.frame
 #' @export
 `labels.data.frame` <- function(object, prefixed = FALSE, ...) {
     lapply(object, labels, prefixed = prefixed)
 }
 
 
-#' @method labels<- declared
 #' @export
 `labels<-.declared` <- function(x, value) {
     attr(x, "labels") <- value
