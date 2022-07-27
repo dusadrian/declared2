@@ -155,7 +155,6 @@
 }
 
 
-#' @method labels declared
 #' @export
 `labels.declared` <- function(object, prefixed = FALSE, ...) {
     labels <- attr(object, "labels", exact = TRUE)
