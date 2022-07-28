@@ -4,16 +4,23 @@
 \alias{labels}
 \alias{label}
 \alias{label<-}
+\alias{labels<-}
 \title{Get / Declare value labels}
 \usage{
 label(x)
 
-label(x) <- value
+label(x, ...) <- value
+
+labels(x) <- value
 }
 \arguments{
 \item{x}{Any vector of values that should be declared as missing
 (for \code{labels}) or a numeric vector of length two giving the (inclusive)
 extents of the range of missing values (for \code{label}).}
+
+\item{...}{Other arguments, for internal use.}
+
+\item{value}{The variable label, or a vector of (named) value labels}
 }
 \value{
 \code{labels()} will return a named vector.

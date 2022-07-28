@@ -73,14 +73,16 @@ label.default <- function(x) {
 
 
 #' @rdname labels
+#' @param ... Other arguments, for internal use.
+#' @param value The variable label, or a vector of (named) value labels
 #' @export
-`label<-` <- function(x, value) {
+`label<-` <- function(x, ..., value) {
   UseMethod("label<-")
 }
 
 
 #' @export
-`label<-.declared` <- function(x, value) {
+`label<-.declared` <- function(x, ..., value) {
   if (!is.null(value) && length(value) > 1) {
     stopError_("`value` should be a single character string or NULL.")
   }
@@ -99,7 +101,7 @@ label.default <- function(x) {
 # to lower the risk of namespace collision
 
 #' @export
-`label<-.default` <- function(x, value) {
+`label<-.default` <- function(x, ..., value) {
   if(is.list(value)) {
     stopError_("cannot assign a list to be a object label")
   }
@@ -179,6 +181,23 @@ label.default <- function(x) {
 `labels.data.frame` <- function(object, prefixed = FALSE, ...) {
     lapply(object, labels, prefixed = prefixed)
 }
+
+
+
+
+#' @rdname labels
+#' @export
+`labels<-` <- function(x, value) {
+  UseMethod("labels<-")
+}
+
+
+#' @export
+`labels<-.default` <- function(x, value) {
+  # do nothing
+  NULL
+}
+
 
 
 #' @export
