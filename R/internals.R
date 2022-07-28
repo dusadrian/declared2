@@ -1,5 +1,19 @@
+#' @title declared internal functions
+#' @description Only to be used internally for developers and contributors.
+#' @details The following functions are copied from package \code{admisc} to achieve zero dependency.
+#' @section admisc functions:
+#' \code{\link{stopError_}}, \code{\link{coerceMode_}},
+#' @name declared_internals
+NULL
 
-#' @export
+#' @rdname declared_internals
+#' @keywords internal
+example_internal <- function() {
+  return(NULL)
+}
+
+#' @rdname declared_internals
+#' @keywords internal
 `format_declared` <- function(x, digits = getOption("digits")) {
   if (!is.atomic(x)) {
     stopError_("`x` has to be a vector.")
@@ -14,8 +28,8 @@
   return(format(out, justify = "right"))
 }
 
-
-#' @export
+#' @rdname declared_internals
+#' @keywords internal
 `order_declared` <- function(
     x, na.last = NA, decreasing = FALSE, method = c("auto", "shell", "radix"),
     empty.last = na.last) {
@@ -83,13 +97,15 @@
   return(res)
 }
 
-#' @export
+#' @rdname declared_internals
+#' @keywords internal
 `value_labels` <- function(...) {
   .Deprecated(msg = "Function value_labels() is deprecated, use labels()\n")
   labels(...)
 }
 
-#' @export
+#' @rdname declared_internals
+#' @keywords internal
 `variable_label` <- function(...) {
   .Deprecated(msg = "Function variable_label() is deprecated, use label()\n")
   label(...)
@@ -114,7 +130,8 @@
     return(type)
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `check_measurement` <- function(x) {
 
     if (is.null(x)) {
@@ -249,7 +266,8 @@
     return("") # character, but cannot determine the measurement level
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `all_missing_values` <- function(
     x, na_values = NULL, na_range = NULL, labels = NULL
 ) {
@@ -303,7 +321,8 @@
     return(misvals)
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `names_values` <- function(x, drop_na = FALSE) {
 
     if (!inherits(x, "declared") & !inherits(x, "haven_labelled_spss")) {
@@ -370,9 +389,8 @@
 
 
 
-# the following functions are copied from package admisc
-# to achieve zero dependency
-
+#' @rdname declared_internals
+#' @keywords internal
 `stopError_` <- function(message, enter = "\n") {
 
     message <- paste0(
@@ -405,7 +423,8 @@
     )
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `coerceMode_` <- function(x) {
 
     if (!is.atomic(x)) {
@@ -433,7 +452,8 @@
     return(x)
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `possibleNumeric_` <- function(x, each = FALSE) {
 
     result <- rep(NA, length(x))
@@ -494,7 +514,8 @@
     return(!any(is.na(suppressWarnings(as.numeric(na.omit(x))))))
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `asNumeric_` <- function(x, levels = TRUE) {
     if (is.numeric(x)) {
         return(x)
@@ -517,7 +538,8 @@
     return(result)
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `wholeNumeric_` <- function(x, each = FALSE) {
     if (inherits(x, "haven_labelled") || inherits(x, "declared")) {
         return(Recall(unclass(x), each = each))
@@ -555,7 +577,8 @@
     return(all(result[!isna]))
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `tryCatchWEM_` <- function(expr, capture = FALSE) {
     toreturn <- list()
     output <- withVisible(withCallingHandlers(
@@ -583,24 +606,28 @@
     }
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `padLeft_` <- function(x, n) {
     paste(c(rep(" ", n), x), collapse = "", sep = "")
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `padRight_` <- function(x, n) {
     paste(c(x, rep(" ", n)), collapse = "", sep = "")
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `padBoth_` <- function(x, n) {
     n1 <- ceiling(n/2)
     n2 <- floor(n/2)
     paste(c(rep(" ", n1), x, rep(" ", n2)), collapse = "", sep = "")
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `unlockEnvironment_` <- function(env) {
      .Call("_unlockEnvironment", env, PACKAGE = "declared")
 }
@@ -615,7 +642,8 @@
     return(x)
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `hasTag_` <- function(x, tag = NULL) {
     if (!is.double(x)) {
         return(logical(length(x)))
@@ -632,7 +660,8 @@
     return(.Call("_hasTag_", x, tag, PACKAGE = "declared"))
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `getTag_` <- function(x) {
     if (is.double(x)) {
         x <- .Call("_getTag_", x, PACKAGE = "declared")
@@ -647,6 +676,8 @@
     }
 }
 
+#' @rdname declared_internals
+#' @keywords internal
 `numdec_` <- function(x, each = FALSE, na.rm = TRUE, maxdec = 15) {
 
     pN <- possibleNumeric_(x, each = TRUE)
@@ -676,7 +707,8 @@
     return(max(result, na.rm = na.rm))
 }
 
-
+#' @rdname declared_internals
+#' @keywords internal
 `trimstr_` <- function(x, what = " ", side = "both") {
     irv <- c(194, 160)
     multibyte_space <- rawToChar(as.raw(irv))

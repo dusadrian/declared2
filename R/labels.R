@@ -43,13 +43,13 @@
 #' extents of the range of missing values (for \code{label}).
 #'
 #' @export
-`label` <- function(x) {
+label <- function(x) {
   UseMethod("label")
 }
 
 
 #' @export
-`label.default` <- function(x) {
+label.default <- function(x) {
   attr(x, "label", exact = TRUE)
 }
 
