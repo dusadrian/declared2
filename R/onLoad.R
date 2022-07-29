@@ -505,15 +505,10 @@
         env$as.factor <- function(
             x,
             levels = c("default", "labels", "values", "both"),
-            ordered = FALSE, drop_na = TRUE,
+            ordered = FALSE,
             ...
         ) {
             if (is.declared(x)) {
-                if (drop_na) {
-                    attr(x, "na_index") <- NULL
-                    attr(x, "na_values") <- NULL
-                }
-
                 levels <- match.arg(levels)
                 label <- attr(x, "label", exact = TRUE)
                 labels <- attr(x, "labels", exact = TRUE)

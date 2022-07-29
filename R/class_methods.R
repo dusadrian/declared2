@@ -1,22 +1,8 @@
 #' @export
-`as.double.declared` <- function(x, drop_na = TRUE, ...) {
-  if (!drop_na) {
-    x <- undeclare(x)
-  }
+`as.character.declared` <- function(x, values = FALSE, ...) {
 
-  attributes(x) <- NULL
-  as.numeric(x, ... = ...)
-}
-
-#' @export
-`as.character.declared` <- function(x, values = FALSE, drop_na = TRUE, ...) {
-
-  labels <- names_values(x, drop_na = drop_na)
-  if (drop_na) {
-    attr(x, "na_index") <- NULL
-    attr(x, "na_values") <- NULL
-  }
-
+  labels <- names_values(x)
+  
   x <- undeclare(x, drop = TRUE)
 
   if (isTRUE(values)) {
