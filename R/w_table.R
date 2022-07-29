@@ -194,7 +194,7 @@
         # with different values, and factor() complains with overlapping levels
 
         xvalues <- !identical(names(xvallab), as.character(xvallab))
-        # print(head(paste(as.character(undeclare(x)), undeclare(x), sep = "_-_")))
+        # print(head(paste(as.character(x), undeclare(x), sep = "_-_")))
 
         x <- factor(
             paste(
@@ -227,7 +227,7 @@
             yna_values <- attr(yvallab, "missing")
             y <- factor(
                 paste(
-                    as.character(undeclare(y)),
+                    as.character(y),
                     undeclare(y, drop = TRUE),
                     sep = "_-_"
                 ),
