@@ -36,7 +36,7 @@
 #' @param x A vector
 #'
 #' @export
-is.empty <- function(x) {
+`is.empty` <- function(x) {
   if (!is.atomic(x)) {
     stopError_("'x' should be an atomic vector.")
   }

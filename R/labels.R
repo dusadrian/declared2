@@ -55,19 +55,19 @@ label.default <- function(x) {
 
 
 #' @export
-`label.haven_labelled_spss` <- function(x) {
+label.haven_labelled_spss <- function(x) {
   attr(x, "label", exact = TRUE)
 }
 
 
 #' @export
-`label.declared` <- function(x) {
+label.declared <- function(x) {
   attr(x, "label", exact = TRUE)
 }
 
 
 #' @export
-`label.data.frame` <- function(x) {
+label.data.frame <- function(x) {
   lapply(x, label)
 }
 
@@ -97,8 +97,10 @@ label.default <- function(x) {
   return(x)
 }
 
-# the following functions are deliberately taken from package Hmisc
-# to lower the risk of namespace collision
+
+
+# the following two functions are deliberately taken from
+# package Hmisc to ensure functionality upon a namespace collision
 
 #' @export
 `label<-.default` <- function(x, ..., value) {
@@ -158,7 +160,7 @@ label.default <- function(x) {
 
 
 #' @export
-`labels.declared` <- function(object, prefixed = FALSE, ...) {
+labels.declared <- function(object, prefixed = FALSE, ...) {
     labels <- attr(object, "labels", exact = TRUE)
     if (prefixed) {
         names(labels) <- paste0("[", labels, "] ", names(labels))
@@ -169,7 +171,7 @@ label.default <- function(x) {
 
 
 #' @export
-`labels.haven_labelled_spss` <- function(object, prefixed = FALSE, ...) {
+labels.haven_labelled_spss <- function(object, prefixed = FALSE, ...) {
     labels <- attr(object, "labels", exact = TRUE)
     if (prefixed)
         names(labels) <- paste0("[", labels, "] ", names(labels))
@@ -178,7 +180,7 @@ label.default <- function(x) {
 
 
 #' @export
-`labels.data.frame` <- function(object, prefixed = FALSE, ...) {
+labels.data.frame <- function(object, prefixed = FALSE, ...) {
     lapply(object, labels, prefixed = prefixed)
 }
 

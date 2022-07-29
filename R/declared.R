@@ -113,8 +113,7 @@
 #' @param ... Other arguments used by various other methods
 #'
 #' @export
-
-`declared` <- function(
+declared <- function(
     x, labels = NULL, na_values = NULL, na_range = NULL, label = NULL,
     measurement = NULL, ...
 ) {
@@ -123,7 +122,7 @@
 
 
 #' @export
-`declared.default` <- function(
+declared.default <- function(
     x, labels = NULL, na_values = NULL, na_range = NULL, label = NULL,
     measurement = NULL, ...
 ) {
@@ -203,5 +202,3 @@
 
   return(x)
 }
-
-

@@ -90,6 +90,7 @@ NULL
 
 #' @rdname declared_internal
 #' @keywords internal
+#' @export
 `value_labels` <- function(...) {
   .Deprecated(msg = "Function value_labels() is deprecated, use labels()\n")
   labels(...)
@@ -97,6 +98,7 @@ NULL
 
 #' @rdname declared_internal
 #' @keywords internal
+#' @export
 `variable_label` <- function(...) {
   .Deprecated(msg = "Function variable_label() is deprecated, use label()\n")
   label(...)
