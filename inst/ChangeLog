@@ -1,0 +1,92 @@
+Version 0.18
+    o Improved method for rbind() data frames, taking care of declared variables
+    o Function value_labels() has been replaced with the generic base function
+      labels(), and the function variable_label() has been replaced with the
+      function label()
+    o Changed default for as.factor(), with values and (where available) levels
+      (thanks to Danial Antal for the report)
+    o New logical argument "drop_na" (activated by default) in functions
+      as.numeric(), as.character() and as.factor()
+
+Version 0.17
+    o Correctly determine the object mode, function of both value labels and
+      input values (especially when all input values are empty NA values)
+    o New argument "measurement" in function declared()
+    o New function measurement(), to query and allocate measurement levels
+
+Version 0.16
+    o New logical argument "values" in the S3 method for as.character()
+    o Removed aliases as_declared() and as_haven() from the namespace
+    o Fixed as.haven() which should return double objects
+
+Version 0.15
+    o Class method for many / most primitive functions, with declared objects
+    o Bug fix in w_table() affecting zero frequency categories
+    o Dropped alias frtable() from function w_table()
+    o New function is.empty(), testing the presence of undeclared missing values
+    o Main function declare() is now generic, allowing flexibility to create
+      custom methods for any other classes of objects
+    o Removed dependency on package admisc, by incorporating the necessary
+      functionality as internal functions
+
+Version 0.13
+    o New functions w_mode() and w_standardize()
+    o Fixed x_summary(), summaries should not be rounded by default
+    o Fixed w_mean() to weight negative values
+    Thanks to an anonymous reviewer for reporting and suggesting the following:
+    o New argument "drop" in function undeclare()
+    o Bug fix in the class methods for head() and tail()
+    o Function declared now duly recognizes input factors
+    o Extended as.factor() for objects of class "declared"
+    o Added proper class methods for primitive arithmetic operations
+    o New functions as.declared(), is.declared()
+    o Added explanatory documentation (for instance in the DESCRIPTION file) to
+      explain the reasons for reimplementing some of the base functions
+
+Version 0.12
+    o New function w_summary()
+    o Functions w_table() and w_quantile() now properly deal with missing weights
+    o New argument "trim" in function w_mean()
+
+Version 0.11
+    o Fixed w_table(), an internal object was inadvertently returned
+    o Improved printing of crosstables
+
+Version 0.10
+    o New functions w_mean(), w_var() and w_sd(), w_quantile and w_median, to 
+      obtain weighted versions of mean, variance and standard deviation,
+      quantiles and median, respectively, adapted to declared objects
+    o Fixed a bug in as.haven.declared(), when all values are (declared) missing
+      and labels are not numeric
+    o Argument "weight" changed to "wt" in w_table()
+    o New arguments in function w_table(): "observed" to only print observed
+      values, and "margin" to calculate proportions in crosstabs
+    o Function w_table() now accepts a second argument "y" to create crosstabs
+    o Function frtable() renamed to w_table() standing for weighted table
+
+Version 0.9
+    o New argument "weight" in function frtable(), allowing to weight not only
+      valid but also missing values
+    o More robust function frtable() in treating declared values with
+      overlapping labels (e.g. hierarchical ISCO codes and categories)
+    o Fixed a bug in declared() when all values are completely missing
+
+Version 0.8
+    o Improved treatment of equality and non-equality, now accepting labels as
+      well as values
+    o Reverted functionality to not dropping the attributes in arithmetic
+      operations, this is now left to the users' preference
+
+Version 0.7
+    o Bug fix saving declared data frames as .csv files
+    o as.declared() now retains the "format.spss" attribute, if existing
+
+Version 0.6
+    o Improved treatment of arithmetic operations, attributes are no longer
+      propagated (thanks to Randall Pruim for the suggestion)
+    o Modified as.haven() for objects of class "declared", to avoid a bug in
+      package ReadStat that prevents exporting missing values to SPSS for
+      integer variables
+
+Version 0.5
+    o Initial version
