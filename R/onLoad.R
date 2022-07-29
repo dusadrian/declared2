@@ -517,8 +517,8 @@
                     vals <- sort(unique(x), na.last = TRUE)
                     
                     x <- factor(
-                        as.character(undeclare(x)),
-                        levels = as.character(undeclare(vals)),
+                        as.character(x),
+                        levels = as.character(vals),
                         ordered = ordered
                     )
                 }
@@ -527,17 +527,16 @@
                     labs <- names(labels)
                     
                     x <- factor(
-                        as.character(undeclare(x)),
+                        as.character(x),
                         levels = sort(unique(labs)),
                         ordered = ordered
                     )
                 }
                 else if (levels == "values") {
                     levels <- unique(
-                        undeclare(
-                            sort(x, na.last = TRUE),
-                            drop = TRUE
-                        )
+                        sort(x, na.last = TRUE),
+                        drop = TRUE
+                        
                     )
                     
                     x <- factor(
@@ -553,8 +552,8 @@
                     vals <- sort(unique(x), na.last = TRUE)
                     
                     x <- factor(
-                        as.character(undeclare(x)),
-                        levels = as.character(undeclare(vals)),
+                        as.character(x),
+                        levels = as.character(vals),
                         ordered = ordered
                     )
                 }

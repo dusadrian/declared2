@@ -1,9 +1,10 @@
 #' @export
 `as.character.declared` <- function(x, values = FALSE, ...) {
 
-  labels <- names_values(x)
-  
-  x <- undeclare(x, drop = TRUE)
+  labels <- names_values(x, drop_na = TRUE)
+
+  # x <- undeclare(x, drop = TRUE)
+  attributes(x) <- NULL
 
   if (isTRUE(values)) {
     return(as.character(x))
