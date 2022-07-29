@@ -227,7 +227,7 @@
             yna_values <- attr(yvallab, "missing")
             y <- factor(
                 paste(
-                    as.character(y),
+                    as.character(undeclare(y)),
                     undeclare(y, drop = TRUE),
                     sep = "_-_"
                 ),
