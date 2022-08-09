@@ -21,7 +21,9 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Suggests: 
+    haven,
     knitr,
+    labelled,
     rmarkdown,
     spelling
 VignetteBuilder: knitr
