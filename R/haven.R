@@ -1,7 +1,10 @@
+#' @rdname declared_internal
+#' @export
 `as.haven` <- function(x, ...) {
     UseMethod("as.haven")
 }
 
+#' @export
 `as.haven.default` <- function(x, ...) {
     interactive <- TRUE
 
@@ -24,6 +27,7 @@
     return(x)
 }
 
+#' @export
 `as.haven.declared` <- function(x, ...) {
     na_index <- attr(x, "na_index")
     attrx <- attributes(x)
@@ -113,6 +117,7 @@
     return(x)
 }
 
+#' @export
 `as.haven.data.frame` <- function(x, ..., only_declared = TRUE, interactive = FALSE) {
     if (only_declared) {
         xdeclared <- vapply(x, is.declared, logical(1))
